@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Slider Design | X-Dev</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://kit.fontawesome.com/0acc7cf13f.js" crossorigin="anonymous"></script>
+    </head>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" 
+    integrity="sha384-qFfr3th2f7NdN3gETuMb2VRZRMh3BfQpSybvyyQIHq10JLFhDmg8ljYdE/jl4WWI" 
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" 
+    integrity="sha384-tS+c/JtQqJ0ZzJsmLV3IqQol9ua7GA1yWIZo00hG63fgHQLpTY1XCbUMm1Bludbd" 
+    crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Rubik+Vinyl&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Qwitcher+Grypen:wght@400;700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barriecito&family=Modak&family=Qwitcher+Grypen:wght@400;700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+
+    <body>
+        <header class="header">
+            <img src="./images/PARK__2_-removebg-preview.png" alt="Parkurway Logo" class="logo1" width="150px">
+        <nav class="navbar">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#features">Why Us?</a>
+            <a href="#projects">Near Me!</a>
+            <a href="#contacts">Contacts</a>
+            <a href="./Login/login.html">Login/SignUp</a>
+        </nav>
+       </header>
+
+        <main>
+            <div class="filters-section">
+                <button id="filterBtn" class="filter-button">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="4" y1="6" x2="20" y2="6"></line>
+                        <line x1="4" y1="12" x2="20" y2="12"></line>
+                        <line x1="4" y1="18" x2="20" y2="18"></line>
+                    </svg>
+                    Sort & Filter
+                </button>
+                <div id="filterMenu" class="filter-menu hidden">
+                    <div class="filter-section">
+                        <h3>Sort By</h3>
+                        <div class="sort-options">
+                            <button class="sort-option" data-sort="price-asc">Price: Low to High</button>
+                            <button class="sort-option" data-sort="price-desc">Price: High to Low</button>
+                            <button class="sort-option" data-sort="rating">Rating: Highest First</button>
+                            <button class="sort-option" data-sort="distance">Distance: Nearest First</button>
+                        </div>
+                    </div>
+    
+                    <div class="filter-section">
+                        <h3>Vehicle Type</h3>
+                        <select id="vehicleType" class="filter-select">
+                            <option value="">Select vehicle type</option>
+                            <option value="car">Car</option>
+                            <option value="suv">SUV</option>
+                            <option value="motorcycle">Motorcycle</option>
+                            <option value="truck">Truck</option>
+                        </select>
+                    </div>
+    
+                    <div class="filter-section">
+                        <h3>Price Range</h3>
+                        <div class="price-range">
+                            <input type="range" id="priceRange" min="0" max="5000" value="50" class="range-slider">
+                            <div class="price-labels">
+                                <span id="minPrice">₹0</span>
+                                <span id="maxPrice">₹12000</span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="filter-section">
+                        <h3>Features</h3>
+                        <select id="features" class="filter-select">
+                            <option value="">Select features</option>
+                            <option value="cctv">CCTV</option>
+                            <option value="24/7">24/7 Access</option>
+                            <option value="covered">Covered Parking</option>
+                            <option value="security">Security Guard</option>
+                        </select>
+                    </div>
+    
+                    <div class="filter-section">
+                        <h3>Rating</h3>
+                        <select id="rating" class="filter-select">
+                            <option value="">Select minimum rating</option>
+                            <option value="5">5 Stars</option>
+                            <option value="4">4+ Stars</option>
+                            <option value="3">3+ Stars</option>
+                            <option value="2">2+ Stars</option>
+                        </select>
+                    </div>
+    
+                    <button id="applyFilters" class="apply-button">Apply Filters</button>
+                </div>
+            </div>
+    
+            <div id="parkingSpots" class="parking-spots section">
+                <!-- Parking spots will be added here dynamically -->
+            </div>
+        </main>
+    
+        <div id="toast" class="toast hidden section">
+            <p class="toast-message"></p>
+        </div>
+        <!--Font Awesome CDN-->
+        <div class="they-not-like-us section" id="features">
+        <h1 class="title">Why Us?</h1>
+        <div class="slide-container section">
+            <div class="slide">
+                
+                <div class="item"
+                    style="background-image: url('./images/11470974.jpg');">
+                    <div class="content">
+                        <div class="name">No Fines.. No Tows.. Just Parking!</div>
+                        <div class="des">Say goodbye to parking stress with a quick and effortless booking process</div>
+                        <button>See More</button>
+                    </div>
+                </div>
+                <div class="item"
+                    style="background-image: url('./images/parking_02.jpg');">
+                    <div class="content">
+                        <div class="name">Book.. Park.. Relax!</div>
+                        <div class="des">Choose the best parking space near you with real-time availability</div>
+                        <button>See More</button>
+                    </div>
+                </div>
+                <div class="item"
+                    style="background-image: url('./images/Screenshot\ 2025-02-20\ at\ 11.36.05\ AM.png');">
+                    <div class="content">
+                        <div class="name">Park Safe, Stay Worry-Free!</div>
+                        <div class="des"> Enjoy peace of mind with secure, monitored, and tow-free parking</div>
+                        <button>See More</button>
+                    </div>
+                </div>
+                <div class="item"
+                    style="background-image: url(./images/1761.jpg);">
+                    <div class="content">
+                        <div class="name">Park Smart, Pay Less!</div>
+                        <div class="des">Get the best parking rates without breaking the bank</div>
+                        <button>See More</button>
+                    </div>
+                </div>
+                <div class="item"
+                    style="background-image: url(./images/2304.w061.n005.155B.p15.155.jpg);">
+                    <div class="content">
+                        <div class="name">Got a Spot? Get Paid!</div>
+                        <div class="des">List your unused parking space and start earning effortlessly</div>
+                        <button>See More</button>
+                    </div>
+                </div>
+                <div class="item"
+                    style="background-image: url('./images/2308-w064-n002-593B-p1-593.jpg');">
+                    <div class="content">
+                        <div class="name">Skip the Circling - Your Spot Awaits!</div>
+                        <div class="des">Reserve your parking spot ahead of time and avoid last-minute hassle </div>
+                        <button>See More</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="button">
+                <button class="prev"><i
+                        class="fa-solid fa-arrow-left"></i></button>
+                <button class="next"><i
+                        class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+        </div>
+        <div class="overview section">
+            <img src="./images/3632249.jpg" class="location">
+            <div class="overview-context">
+                <h1 class="title">Company Overview</h1>
+            <p>ParkUrWay makes parking easy and profitable! Drivers can quickly find and book secure, affordable parking, while space owners earn extra income by renting out their unused spots. No stress, no overcrowding, no fear of towing—just seamless, smart parking at your fingertips. Park smarter today! </p>
+            </div>
+        </div>
+        <div class="services section">
+            <div class="service-context">
+            <h1 class="title">Our Services</h1>
+            <p>At ParkUrWay, we make parking simple and stress-free. Drivers can easily find and book secure, affordable parking spots in real-time, ensuring a hassle-free experience. Our monitored locations provide safety and peace of mind, eliminating the risk of towing or fines. For property owners, we offer an easy way to earn extra income by renting out unused parking spaces. With transparent pricing and a seamless booking process, we bring convenience to both drivers and space owners alike. Park smarter with us! </p>
+            </div>
+            <img src="./images/7569589.jpg" class="location">
+        </div>
+        <div class="feedback section">
+            <div class="feedback-context">
+                <h1 class="title">Leave us a message</h1>
+                <p>Reach out to us for any inquiries, partnerships, or support. We're here to help you with parking solutions, space rentals, or anything else you need.</p>
+            </div>
+        
+            <div id="contact">
+                
+                <div class="container p-5 mt-3">
+                    <div class="rows">
+                        
+                        <div class="form-group">
+                            <h4 for="name">Name</h4>
+                            <input
+                            type="text"
+                            class="form-control"
+                            id="name"
+                            placeholder="Enter your name"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <h4 for="email">Email</h4>
+                            <input
+                            type="text"
+                            class="form-control"
+                            id="email"
+                            placeholder="Enter your Email"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <h4 for="message">Message</h4>
+                            <textarea id="message" rows="3" class="form-control"></textarea>
+                        </div>
+                        <button class="btn">Submit</button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+        
+        <footer>
+            <div class="footer">
+            <ul class="list">
+                <li><a href="#">FAQs</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#projects">Why Us?</a></li>
+                <li><a href="#contacts">Contact</a></li>
+            </ul>
+        
+            <div class="social-icons">
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#"><i class="fa-brands fa-github"></i></a>
+            </div>
+        
+            <p class="copyright">
+                &copy; 2025 ParkUrWay | All Rights Reserved |  
+                <span>Terms & Conditions Apply|
+                    Rahul | Rajan | Priyanshu | Raghav</span>
+            </p>
+            </div>
+        </footer>
+        <script src="home.js"></script>
+    </body>
+</html>
