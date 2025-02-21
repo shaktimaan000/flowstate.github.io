@@ -3,11 +3,19 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+html{
+    padding-top:200px ;
+}
 html,body {
     width: 100%;
     overflow-x: hidden; /* Prevents horizontal scrolling but allows vertical scrolling */
     overflow-y: auto;   /* Enables vertical scrolling */
+}
+.home-content{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 header{
     position: fixed;
@@ -75,6 +83,12 @@ header{
     display: inline-block;
     transition: 0.5s;
 }
+.btn-grp{
+    display: flex;
+    justify-content: space-between;
+}
+
+
 
 .slide .item:nth-child(1),
 .slide .item:nth-child(2){
@@ -103,6 +117,35 @@ header{
     opacity: 0;
 }
 
+.btn1{
+  background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+  border: 0;
+  border-radius: 12px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2.5;
+  outline: transparent;
+  padding: 0 1rem;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow .2s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+}
+
+.button-62:not([disabled]):focus {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+}
+
+.button-62:not([disabled]):hover {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+}
 
 
 .item .content{
@@ -482,4 +525,173 @@ main {
 }
 #contact{
     border-radius: 10px;
+}
+
+ /* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+/* Section Styles */
+.services {
+    padding: 60px 20px;
+    background-color: #ffffff;
+    text-align: center;
+}
+.service{
+    display:flex
+
+}
+.heading {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 40px;
+}
+
+.heading span {
+    color: #3498db;
+}
+
+/* Services Container */
+.services-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Service Box Styles */
+.services-box {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    width: 100%;
+    max-width: 280px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.services-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.services-info h4 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.services-info p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .services-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .services-box {
+        max-width: 100%;
+    }
+
+    .heading {
+        font-size: 2rem;
+    }
+
+    .services-info h4 {
+        font-size: 1.3rem;
+    }
+
+    .services-info p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .heading {
+        font-size: 1.8rem;
+    }
+
+    .services-info h4 {
+        font-size: 1.2rem;
+    }
+
+    .services-info p {
+        font-size: 0.85rem;
+    }
+}
+
+:root {
+    --main-color: #007bff; /* Example color */
+    --bg-color: #f8f9fa; /* Example background color */
+}
+
+.text-animation span {
+    position: relative;
+}
+
+.text-animation span::before {
+    content: "Efficiency";
+    color: var(--main-color);
+    animation: words 20s infinite;
+}
+
+.text-animation span::after {
+    content: "";
+    background-color: var(--bg-color);
+    position: absolute;
+    width: calc(100% + 8px);
+    height: 100%;
+    border-left: 3px solid var(--bg-color);
+    right: -8px;
+    animation: cursor 0.6s infinite, typing 20s steps(14) infinite;
+}
+
+@keyframes cursor {
+    to {
+        border-left: 2px solid var(--main-color);
+    }
+}
+
+@keyframes words {
+    0%, 20% {
+        content: "Convenience";
+    }
+    21%, 40% {
+        content: "Affordability";
+    }
+    41%, 60% {
+        content: "Security";
+    }
+    61%, 80% {
+        content: "Availability";
+    }
+    81%, 100% {
+        content: "Efficiency";
+    }
+}
+
+@keyframes typing {
+    0%, 20%, 40%, 60%, 80%, 100% {
+        width: 0;
+    }
+    5%, 25%, 45%, 65%, 85% {
+        width: calc(100% + 8px);
+    }
 }
