@@ -209,7 +209,7 @@ function searchLocation() {
     let warningMessage = document.getElementById("warning-message");
 
     if (locations.includes(location)) {
-        let pricePerHour = (Math.random() * 150).toFixed(2);
+        let pricePerHour = (Math.random() * 30).toFixed(2);
         let availability = Math.random() < 0.5 ? "Available" : "Not Available";
         let url = `parking_info.html?location=${encodeURIComponent(location)}&price=${pricePerHour}&availability=${availability}`;
         window.location.href = url;
@@ -225,4 +225,7 @@ function searchLocation() {
 // Load Dark Mode preference
 if (localStorage.getItem("darkMode") === "enabled") {
     document.body.classList.add("dark-mode");
+}
+function toggleAnswer(element) {
+    element.classList.toggle("active");
 }
