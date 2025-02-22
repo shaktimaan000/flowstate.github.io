@@ -46,73 +46,32 @@
         </nav>       
 
        </header>
-    <div class="location1">
-    <div class="choose">
-        <h2 class="h69">Choose an Option</h2>
-
-    <!-- Buttons for Find Spot & Rent Spot -->
-        <div class="button-container">
-            <button class="action-button" onclick="showFindSpot()">Find Spot</button>
-            <button class="action-button">Rent Spot</button> <!-- Future Feature -->
-        </div>
-    </div>
-    
-
-    <!-- Find Spot Section -->
-    <div class="find-spot-container" id="find-spot">
-        <h3>Find a Parking Spot</h3>
-        <input type="text" id="search-input" placeholder="Enter a location (e.g., Connaught Place)">
-        <button class="action-button" onclick="searchLocation()">Search</button>
-        <div id="warning-message" class="warning">⚠️ Location not found. Please enter a valid location.</div>
-    </div>
-    </div> 
-    <script>
-        var locations = [
-            "New Delhi",
-            "Rithala",
-            "Naraina Vihar",
-            "Connaught Place",
-            "Dwaraka",
-            "Dhaula Kuan",
-            "Azadpur",
-            "Shalimar Bagh",
-            "Karol Bagh",
-            "GB Road"
-        ];
-
-        function showFindSpot() {
-            document.getElementById("find-spot").style.display = "block";
-        }
-
-        function searchLocation() {
-            let location = document.getElementById("search-input").value.trim();
-            let warningMessage = document.getElementById("warning-message");
-
-            if (locations.includes(location)) {
-                let pricePerHour = (Math.random() * 30).toFixed(2);
-                let availability = Math.random() < 0.5 ? "Available" : "Not Available";
-                let url = `parking_info.html?location=${encodeURIComponent(location)}&price=${pricePerHour}&availability=${availability}`;
-                window.location.href = url;
-            } else {
-                warningMessage.style.opacity = "1"; // Smooth fade-in
-                setTimeout(() => { warningMessage.style.opacity = "0"; }, 3000); // Fade out after 3s
-            }
-        }
-
-        
-        
-
-        // Load Dark Mode preference
-        if (localStorage.getItem("darkMode") === "enabled") {
-            document.body.classList.add("dark-mode");
-        }
-    </script>
 
         <div id="toast" class="toast hidden section">
             <p class="toast-message"></p>
         </div>
+        <div class="location1">
+            <div class="choose">
+                <h1 class="h69">Welcome to ParkUrWay</h1>
+                <h4>Find the perfect parking spot or rent out your space</h4>
+            <!-- Buttons for Find Spot & Rent Spot -->
+                <div class="button-container">
+                    <button class="action-button" onclick="showFindSpot()">Find Spot</button>
+                    <button class="action-button2">Rent Spot</button> <!-- Future Feature -->
+                </div>
+            </div>
+            
+    
+            <!-- Find Spot Section -->
+            <div class="find-spot-container" id="find-spot">
+                <h3>Find a Parking Spot</h3>
+                <input type="text" id="search-input" placeholder="Enter a location (e.g., Connaught Place)">
+                <button class="action-button" onclick="searchLocation()">Search</button>
+                <div id="warning-message" class="warning">⚠️ Location not found. Please enter a valid location.</div>
+            </div>
+        </div> 
         <!--Font Awesome CDN-->
-        <div class="they-not-like-us section" id="features">
+        <div class="they-not-like-us" id="features">
         <div class="slide-container section">
             <div class="slide">
                 
@@ -176,7 +135,6 @@
             </div>
         </div>
         </div>
-
         <main>
             <div class="filters-section">
                 <button id="filterBtn" class="filter-button">
@@ -256,42 +214,33 @@
             <div class="services-container">
                 <div class="services-box">
                     <div class="services-info">
+                        <i class="fas fa-car-side" style="color: #075ae9;"></i>
                         <h4>Hassle-Free Parking</h4>
-                        <p>
-                            Find and book verified parking spots in seconds.<br>
-                            No more circling endlessly—reserve in advance!
-                        </p>
+                        <p>Book verified spots instantly no more endless circling! Reserve ahead</p>
                     </div>
                 </div>
         
                 <div class="services-box">
                     <div class="services-info">
+                        <i class="fas fa-credit-card" style="color: #070ff2;"></i>
                         <h4>Earn from Your Empty Space</h4>
-                        <p>
-                            Homeowners and businesses can list their unused parking spots.<br>
-                            Earn passive income by sharing your space securely.
-                        </p>
+                        <p>List your unused space and earn passive income securely</p>
                     </div>
                 </div>
         
                 <div class="services-box">
                     <div class="services-info">
+                        <i class="fa-solid fa-shield-halved" style="color: #005eff;"></i>
                         <h4>Secure and Verified Parking</h4>
-                        <p>
-                            Only verified users and vehicles can book spots.<br>
-                            Optional CCTV, gated access, and owner-approved listings.
-                        </p>
+                        <p>Verified users only. Secure spots with CCTV, gates, owner approval</p>
                     </div>
                 </div>
         
                 <div class="services-box">
                     <div class="services-info">
+                        <i class="fas fa-search-location" style="color: #005eff;"></i>
                         <h4>Flexible Parking Options</h4>
-                        <p>
-                            Hourly, daily, or monthly bookings—pay only for what you need.<br>
-                            Cancel or extend your booking anytime.
-                        </p>
-                    </div>
+                        <p>Hourly, daily, or monthly plans. Cancel or extend anytime </p>
                 </div>
             </div>
         </section>

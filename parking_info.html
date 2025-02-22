@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parking Payment</title>
     <script src="https://js.stripe.com/v3/"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script> <!-- OpenRouteService (Leaflet) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 
     <style>
         body {
@@ -59,6 +61,15 @@
             background: #1E1E1E;
             color: white;
         }
+
+        /* Map Styling */
+        #map {
+            height: 400px;
+            width: 80%;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
     </style>
 </head>
 <body>
@@ -69,6 +80,10 @@
         <p><strong>📍 Location:</strong> <span id="location"></span></p>
         <p><strong>💰 Price per Hour:</strong> ₹<span id="price"></span></p>
         <p><strong>✅ Availability:</strong> <span id="availability"></span></p>
+
+        <!-- Map -->
+        <h3>Parking Location</h3>
+        <div id="map"></div>
 
         <h3>Book Your Spot</h3>
         <label>⏳ Time Slot (Hours):</label>
@@ -83,7 +98,8 @@
 
         // Get Data from URL
         const urlParams = new URLSearchParams(window.location.search);
-        document.getElementById("location").textContent = urlParams.get("location");
+        const selectedLocation = urlParams.get("location");
+        document.getElementById("location").textContent = selectedLocation;
         document.getElementById("price").textContent = urlParams.get("price");
         document.getElementById("availability").textContent = urlParams.get("availability");
 
@@ -100,7 +116,7 @@
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-                    location: urlParams.get("location"),
+                    location: selectedLocation,
                     amount: totalAmount
                 })
             });
@@ -108,6 +124,33 @@
             const session = await response.json();
             stripe.redirectToCheckout({ sessionId: session.id });
         });
+
+        // Define Locations with Coordinates
+        const locations = {
+            "New Delhi": [28.6139, 77.2090],
+            "Rithala": [28.7197, 77.1365],
+            "Naraina Vihar": [28.6263, 77.1439],
+            "Connaught Place": [28.6315, 77.2167],
+            "Dwaraka": [28.5846, 77.0566],
+            "Dhaula Kuan": [28.5882, 77.1717],
+            "Azadpur": [28.7120, 77.1720],
+            "Shalimar Bagh": [28.7025, 77.1683],
+            "Karol Bagh": [28.6518, 77.1925],
+            "GB Road": [28.6400, 77.2270]
+        };
+
+        // Initialize Map with OpenRouteService
+        const coordinates = locations[selectedLocation] || [28.6139, 77.2090]; // Default to New Delhi if not found
+
+        const map = L.map('map').setView(coordinates, 15);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Add Marker for Selected Location
+        L.marker(coordinates).addTo(map)
+            .bindPopup(`<b>${selectedLocation}</b><br>Parking Available Here`)
+            .openPopup();
     </script>
 
 </body>
