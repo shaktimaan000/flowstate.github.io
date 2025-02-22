@@ -46,24 +46,67 @@
         </nav>       
 
        </header>
-    
-       <section class="home" id="home">
-        <div class="home-content">
-            <div class="text-animation-bar">
-                <h3 class="text-animation">
-                    Do You Want? <span></span>
-                </h3>
-            </div>
-            <div class="btn-group">
-                
-                <button class="btn1"  role="button">Find Spot</button>
-                <button class="btn1"  role="button">Rent Spot</button>
-            </div>
-        </div>
-        <img src="image.jpg" alt="">
-        </section>
-       
+    <div class="location1">
+    <div class="choose">
+        <h2 class="h69">Choose an Option</h2>
 
+    <!-- Buttons for Find Spot & Rent Spot -->
+        <div class="button-container">
+            <button class="action-button" onclick="showFindSpot()">Find Spot</button>
+            <button class="action-button">Rent Spot</button> <!-- Future Feature -->
+        </div>
+    </div>
+    
+
+    <!-- Find Spot Section -->
+    <div class="find-spot-container" id="find-spot">
+        <h3>Find a Parking Spot</h3>
+        <input type="text" id="search-input" placeholder="Enter a location (e.g., Connaught Place)">
+        <button class="action-button" onclick="searchLocation()">Search</button>
+        <div id="warning-message" class="warning">⚠️ Location not found. Please enter a valid location.</div>
+    </div>
+    </div> 
+    <script>
+        var locations = [
+            "New Delhi",
+            "Rithala",
+            "Naraina Vihar",
+            "Connaught Place",
+            "Dwaraka",
+            "Dhaula Kuan",
+            "Azadpur",
+            "Shalimar Bagh",
+            "Karol Bagh",
+            "GB Road"
+        ];
+
+        function showFindSpot() {
+            document.getElementById("find-spot").style.display = "block";
+        }
+
+        function searchLocation() {
+            let location = document.getElementById("search-input").value.trim();
+            let warningMessage = document.getElementById("warning-message");
+
+            if (locations.includes(location)) {
+                let pricePerHour = (Math.random() * 30).toFixed(2);
+                let availability = Math.random() < 0.5 ? "Available" : "Not Available";
+                let url = `parking_info.html?location=${encodeURIComponent(location)}&price=${pricePerHour}&availability=${availability}`;
+                window.location.href = url;
+            } else {
+                warningMessage.style.opacity = "1"; // Smooth fade-in
+                setTimeout(() => { warningMessage.style.opacity = "0"; }, 3000); // Fade out after 3s
+            }
+        }
+
+        
+        
+
+        // Load Dark Mode preference
+        if (localStorage.getItem("darkMode") === "enabled") {
+            document.body.classList.add("dark-mode");
+        }
+    </script>
 
         <div id="toast" class="toast hidden section">
             <p class="toast-message"></p>
@@ -90,7 +133,7 @@
                     </div>
                 </div>
                 <div class="item"
-                    style="background-image: url('./images/thieft-holding-crowbar-trying-break-window-car-crime-scene-stealing-car-concept-cartoon-illustration_201904-389.avif');">
+                    style="background-image: url('./images/thieft-holding-crowbar-trying-break-window-car-crime-scene-stealing-car-concept-cartoon-illustrat.avif');">
                     <div class="content">
                         <div class="name">Park Safe, Stay Worry-Free!</div>
                         <div class="des"> Enjoy peace of mind with secure, monitored, and tow-free parking</div>
