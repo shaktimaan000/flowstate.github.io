@@ -331,7 +331,7 @@ header {
     border-radius: 10px;
 }
 #contact>.container{
-    background: rgb(255, 225, 0);
+    background: #909090;
     max-width: 550px;  /* Reduce width */
     padding: 50px;     /* Reduce padding */
     border-radius: 10px;
